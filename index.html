@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OMIDEH’s MARKET PLACE — Concept</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap");
+      :root {
+        --bg: #101012;
+        --panel: #17171b;
+        --ink: #f1f0f4;
+        --muted: #a4a3ac;
+        --line: #303037;
+        --silver: #dedde5;
+        --ice: #c8d8ee;
+        --lilac: #b9a4de;
+        --white: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1240px;
+        margin: auto;
+        padding: 0 34px;
+      }
+      .announcement {
+        text-align: center;
+        padding: 10px 16px;
+        background: #080809;
+        border-bottom: 1px solid #2a2a31;
+        color: #d8d7df;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+      }
+      .announcement b {
+        color: #c8d8ee;
+        font-weight: 600;
+      }
+      .nav {
+        height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        font:
+          600 25px "Cormorant Garamond",
+          serif;
+        letter-spacing: 0.07em;
+        color: #f2f1f5;
+      }
+      .brand sup {
+        font: 500 9px "DM Sans";
+        letter-spacing: 0.18em;
+        color: #b8b6c2;
+        vertical-align: middle;
+        margin-left: 7px;
+      }
+      .navlinks {
+        display: flex;
+        gap: 32px;
+        font-size: 12px;
+        color: #d1d0d7;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .pill,
+      .button {
+        display: inline-block;
+        background: linear-gradient(110deg, #eeeef2, #cbdcf1, #d8c8ef);
+        color: #17171a;
+        padding: 14px 19px;
+        font-size: 11px;
+        font-weight: 700;
+        border: 0;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 0.95fr;
+        gap: 54px;
+        align-items: center;
+        padding: 64px 0 69px;
+      }
+      .eyebrow,
+      .label {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #c7c6d0;
+      }
+      .eyebrow:before {
+        content: "";
+        display: inline-block;
+        height: 1px;
+        width: 23px;
+        background: linear-gradient(90deg, var(--lilac), var(--ice));
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      .hero h1 {
+        font:
+          500 clamp(48px, 6vw, 78px)/0.99 "Cormorant Garamond",
+          serif;
+        letter-spacing: -0.04em;
+        margin: 20px 0;
+        max-width: 540px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        background: linear-gradient(100deg, #f1f0f4, #b9cdea, #c4b1e4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 410px;
+        margin: 0 0 27px;
+      }
+      .hero-cta {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .ghostlink {
+        font-size: 11px;
+        color: #e2e0e8;
+        border-bottom: 1px solid #6a6872;
+        padding-bottom: 5px;
+      }
+      .socialproof {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 27px;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .socialproof b {
+        color: var(--ink);
+      }
+      .faces {
+        display: flex;
+      }
+      .faces i {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 2px solid var(--bg);
+        margin-left: -6px;
+        background: linear-gradient(135deg, #9177bc, #cdd9ef);
+      }
+      .faces i:first-child {
+        margin-left: 0;
+        background: linear-gradient(135deg, #282832, #c7c5d0);
+      }
+      .faces i:nth-child(2) {
+        background: linear-gradient(135deg, #8290a5, #e1d4ca);
+      }
+      .heroimage {
+        height: 475px;
+        position: relative;
+        background: #141419;
+        overflow: hidden;
+        border: 1px solid #373741;
+      }
+      .heroimage:after {
+        content: "";
+        position: absolute;
+        left: -5%;
+        right: -5%;
+        top: 28%;
+        height: 2px;
+        transform: rotate(-12deg);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #b993e7,
+          #dce9ff,
+          #fff,
+          #bcdaef,
+          transparent
+        );
+        box-shadow: 0 0 12px #c5c5ff;
+        opacity: 0.8;
+        z-index: 1;
+      }
+      .heroimage img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(0.66) contrast(1.04);
+      }
+      .heroimage:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(5, 5, 8, 0.6),
+          transparent 45%,
+          rgba(8, 8, 12, 0.12)
+        );
+        z-index: 1;
+      }
+      .hero-brand {
+        position: absolute;
+        z-index: 2;
+        top: 24px;
+        left: 24px;
+        font: 600 13px "DM Sans";
+        letter-spacing: 0.2em;
+        text-shadow: 0 1px 8px #111;
+      }
+      .image-note {
+        position: absolute;
+        z-index: 2;
+        bottom: 18px;
+        left: 18px;
+        background: rgba(13, 13, 16, 0.88);
+        color: #dedde4;
+        padding: 12px 15px;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 1px solid #46464f;
+      }
+      .image-note b {
+        display: block;
+        font: 500 19px "Cormorant Garamond";
+        text-transform: none;
+        letter-spacing: 0;
+        margin-top: 4px;
+      }
+      .strip {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 17px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #aaa9b2;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .strip span {
+        color: #e2e1e8;
+        font-weight: 600;
+      }
+      .section {
+        padding: 70px 0;
+      }
+      .sectionhead {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 27px;
+      }
+      .sectionhead h2 {
+        font:
+          500 40px/1 "Cormorant Garamond",
+          serif;
+        letter-spacing: -0.025em;
+        margin: 9px 0 0;
+      }
+      .textlink {
+        font-size: 10px;
+        border-bottom: 1px solid #aaa9b2;
+        padding-bottom: 5px;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .product {
+        min-width: 0;
+      }
+      .product-photo {
+        height: 290px;
+        position: relative;
+        background: #202025;
+        overflow: hidden;
+        border: 1px solid #303037;
+      }
+      .product-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(0.72);
+      }
+      .product-photo:after {
+        content: "";
+        position: absolute;
+        inset: 55% 0 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.42));
+      }
+      .product-tag {
+        position: absolute;
+        z-index: 1;
+        left: 12px;
+        top: 12px;
+        background: rgba(12, 12, 15, 0.82);
+        border: 1px solid #45444d;
+        padding: 7px 9px;
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .product-detail {
+        padding: 14px 2px 0;
+      }
+      .product-titleline {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: baseline;
+      }
+      .product h3 {
+        font: 500 22px "Cormorant Garamond";
+        margin: 0;
+      }
+      .price {
+        font-size: 11px;
+        color: #d9d8e0;
+        white-space: nowrap;
+      }
+      .product p {
+        font-size: 10px;
+        color: var(--muted);
+        margin: 5px 0 13px;
+      }
+      .buy {
+        display: inline-block;
+        border: 1px solid #777681;
+        padding: 10px 12px;
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: 0.2s;
+      }
+      .buy:hover {
+        background: #e7e6ec;
+        color: #111;
+        border-color: #e7e6ec;
+      }
+      .section-dark {
+        background: var(--panel);
+        border-top: 1px solid #27272d;
+        border-bottom: 1px solid #27272d;
+      }
+      .feature {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 55px;
+        align-items: center;
+      }
+      .feature-photo {
+        height: 410px;
+        overflow: hidden;
+        border: 1px solid #3a3942;
+        position: relative;
+      }
+      .feature-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(0.3);
+      }
+      .feature-copy h2 {
+        font: 500 clamp(38px, 4vw, 56px)/1.04 "Cormorant Garamond";
+        margin: 12px 0 18px;
+      }
+      .feature-copy p {
+        font-size: 13px;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 430px;
+        margin-bottom: 23px;
+      }
+      .quote {
+        padding: 60px 0;
+        max-width: 770px;
+        margin: auto;
+        text-align: center;
+      }
+      .quote .stars {
+        letter-spacing: 0.22em;
+        color: #cddbf0;
+        font-size: 12px;
+      }
+      .quote blockquote {
+        font: 500 clamp(25px, 3.5vw, 40px)/1.22 "Cormorant Garamond";
+        margin: 20px 0;
+      }
+      .quote cite {
+        font: normal 9px "DM Sans";
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .footer {
+        background: #080809;
+        padding: 45px 0 22px;
+        border-top: 1px solid #303037;
+      }
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 36px;
+      }
+      .footer p {
+        font: 500 25px/1.18 "Cormorant Garamond";
+        margin: 12px 0 0;
+      }
+      .foot-bottom {
+        border-top: 1px solid #303037;
+        padding-top: 17px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 9px;
+        color: #96949e;
+      }
+      .whatsapp-float {
+        position: fixed;
+        right: 23px;
+        bottom: 22px;
+        z-index: 5;
+        background: linear-gradient(110deg, #eeeef2, #cbdcf1, #d8c8ef);
+        color: #151518;
+        padding: 13px 17px;
+        font-size: 10px;
+        font-weight: 700;
+        box-shadow: 0 4px 25px #0008;
+      }
+      @media (max-width: 850px) {
+        .wrap {
+          padding: 0 20px;
+        }
+        .navlinks {
+          display: none;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 45px 0;
+        }
+        .heroimage {
+          height: 390px;
+        }
+        .products {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 25px 13px;
+        }
+        .product-photo {
+          height: 250px;
+        }
+        .feature {
+          grid-template-columns: 1fr;
+          gap: 27px;
+        }
+        .feature-photo {
+          height: 330px;
+        }
+        .section {
+          padding: 53px 0;
+        }
+        .sectionhead h2 {
+          font-size: 34px;
+        }
+        .strip {
+          gap: 15px;
+          overflow: hidden;
+          white-space: nowrap;
+          font-size: 8px;
+        }
+        .footer-top {
+          gap: 22px;
+          align-items: start;
+          flex-direction: column;
+        }
+        .foot-bottom {
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+      }
+      @media (max-width: 430px) {
+        .wrap {
+          padding: 0 16px;
+        }
+        .brand {
+          font-size: 22px;
+        }
+        .hero h1 {
+          font-size: 50px;
+        }
+        .heroimage {
+          height: 340px;
+        }
+        .products {
+          gap: 22px 10px;
+        }
+        .product-photo {
+          height: 210px;
+        }
+        .product h3 {
+          font-size: 19px;
+        }
+        .buy {
+          padding: 9px 8px;
+          font-size: 8px;
+        }
+        .sectionhead h2 {
+          font-size: 31px;
+        }
+        .whatsapp-float {
+          right: 12px;
+          bottom: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="announcement">
+      OMIDEH’S MARKET PLACE <b>· STREETWEAR WITH A SIGNATURE</b>
+    </div>
+    <header class="wrap nav">
+      <a class="brand" href="#top">OMIDEH's<sup>MARKET PLACE</sup></a>
+      <nav class="navlinks">
+        <a href="#hoodies">Hoodies</a><a href="#socks">Socks</a
+        ><a href="#sweatpants">Sweatpants</a><a href="#shirts">Shirts</a>
+      </nav>
+      <a class="pill" href="#collection">Shop the collection ↗</a>
+    </header>
+    <main id="top">
+      <section class="wrap hero">
+        <div>
+          <div class="eyebrow">The OMIDEH collection</div>
+          <h1>Wear your<br />own <em>kind of</em><br />presence.</h1>
+          <p>
+            Statement streetwear made to move with you. Explore the collection,
+            find your fit, and message us directly to make it yours.
+          </p>
+          <div class="hero-cta">
+            <a class="button" href="#collection">Explore the collection ↗</a
+            ><a class="ghostlink" href="#story">Discover OMIDEH</a>
+          </div>
+          <div class="socialproof">
+            <div class="faces"><i></i><i></i><i></i></div>
+            <span
+              ><b>Made for everyday expression</b><br />Find the piece that
+              feels like you.</span
+            >
+          </div>
+        </div>
+        <div class="heroimage">
+          <div class="hero-brand">OMIDEH</div>
+          <img
+            src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1100&q=85"
+            alt="Editorial streetwear look"
+          />
+          <div class="image-note">
+            The signature collection<b>Made to stand apart.</b>
+          </div>
+        </div>
+      </section>
+      <div class="wrap strip">
+        <span>Hoodies</span><span>Everyday essentials</span
+        ><span>Made to make a statement</span><span>Find your fit</span>
+      </div>
+      <section class="wrap section" id="collection">
+        <div class="sectionhead">
+          <div>
+            <div class="label">Explore the collection</div>
+            <h2>Made for your rotation</h2>
+          </div>
+          <a class="textlink" href="#contact">Need sizing help? Message us ↗</a>
+        </div>
+        <div class="products">
+          <article class="product" id="hoodies">
+            <div class="product-photo">
+              <img
+                src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85"
+                alt="Black streetwear hoodie"
+              /><span class="product-tag">01 · HOODIES</span>
+            </div>
+            <div class="product-detail">
+              <div class="product-titleline">
+                <h3>Signature Hoodie</h3>
+                <span class="price">Ask for price</span>
+              </div>
+              <p>Relaxed fit · Available in multiple sizes</p>
+              <a
+                class="buy"
+                href="https://wa.me/2340000000000?text=Hi%20OMIDH%2C%20I%27m%20interested%20in%20the%20Signature%20Hoodie.%20Can%20we%20discuss%20price%20and%20sizes%3F"
+                target="_blank"
+                rel="noreferrer"
+                >Discuss on WhatsApp ↗</a
+              >
+            </div>
+          </article>
+          <article class="product" id="socks">
+            <div class="product-photo">
+              <img
+                src="https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=800&q=85"
+                alt="Athletic socks"
+              /><span class="product-tag">02 · SOCKS</span>
+            </div>
+            <div class="product-detail">
+              <div class="product-titleline">
+                <h3>Everyday Socks</h3>
+                <span class="price">Ask for price</span>
+              </div>
+              <p>Soft feel · A little detail that goes a long way</p>
+              <a
+                class="buy"
+                href="https://wa.me/2340000000000?text=Hi%20OMIDH%2C%20I%27m%20interested%20in%20the%20Everyday%20Socks.%20Can%20we%20discuss%20price%20and%20availability%3F"
+                target="_blank"
+                rel="noreferrer"
+                >Discuss on WhatsApp ↗</a
+              >
+            </div>
+          </article>
+          <article class="product" id="sweatpants">
+            <div class="product-photo">
+              <img
+                src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=800&q=85"
+                alt="Casual sweatpants"
+              /><span class="product-tag">03 · SWEATPANTS</span>
+            </div>
+            <div class="product-detail">
+              <div class="product-titleline">
+                <h3>Core Sweatpants</h3>
+                <span class="price">Ask for price</span>
+              </div>
+              <p>Easy movement · Comfortable everyday fit</p>
+              <a
+                class="buy"
+                href="https://wa.me/2340000000000?text=Hi%20OMIDH%2C%20I%27m%20interested%20in%20the%20Core%20Sweatpants.%20Can%20we%20discuss%20price%20and%20sizes%3F"
+                target="_blank"
+                rel="noreferrer"
+                >Discuss on WhatsApp ↗</a
+              >
+            </div>
+          </article>
+          <article class="product" id="shirts">
+            <div class="product-photo">
+              <img
+                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85"
+                alt="Minimal graphic T-shirt"
+              /><span class="product-tag">04 · SHIRTS</span>
+            </div>
+            <div class="product-detail">
+              <div class="product-titleline">
+                <h3>Everyday Tee</h3>
+                <span class="price">Ask for price</span>
+              </div>
+              <p>Clean lines · Your new go-to shirt</p>
+              <a
+                class="buy"
+                href="https://wa.me/2340000000000?text=Hi%20OMIDH%2C%20I%27m%20interested%20in%20the%20Everyday%20Tee.%20Can%20we%20discuss%20price%20and%20sizes%3F"
+                target="_blank"
+                rel="noreferrer"
+                >Discuss on WhatsApp ↗</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="section-dark" id="story">
+        <div class="wrap section feature">
+          <div class="feature-photo">
+            <img
+              src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1000&q=85"
+              alt="Streetwear collection detail"
+            />
+          </div>
+          <div class="feature-copy">
+            <div class="label">A closer look at OMIDEH</div>
+            <h2>Details that speak<br />without saying a word.</h2>
+            <p>
+              From the fit to the finishing touches, every piece is designed to
+              bring a little more character to your everyday wardrobe.
+            </p>
+            <a class="ghostlink" href="#collection"
+              >Find your next favourite ↗</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="wrap quote">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          “The fit is exactly what I wanted. Comfortable, easy to style, and it
+          feels like me.”
+        </blockquote>
+        <cite>Customer note · Sample testimonial</cite>
+      </section>
+    </main>
+    <footer class="footer" id="contact">
+      <div class="wrap">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="#top">OMIDEH<sup>MARKET PLACE</sup></a>
+            <p>Find your fit.<br />Make it yours.</p>
+          </div>
+          <a
+            class="button"
+            href="https://wa.me/2340000000000?text=Hi%20OMIDH%2C%20I%27d%20like%20to%20ask%20about%20the%20collection."
+            target="_blank"
+            rel="noreferrer"
+            >Chat with us on WhatsApp ↗</a
+          >
+        </div>
+        <div class="foot-bottom">
+          <span>© 2026 OMIDEH’s MARKET PLACE · Concept preview</span
+          ><span>Streetwear with a signature.</span
+          ><span>Instagram &nbsp;·&nbsp; WhatsApp</span>
+        </div>
+      </div>
+    </footer>
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/2340000000000?text=Hi%20OMIDH%2C%20I%27d%20like%20to%20ask%20about%20your%20collection."
+      target="_blank"
+      rel="noreferrer"
+      >WhatsApp OMIDEH ↗</a
+    >
+  </body>
+</html>
